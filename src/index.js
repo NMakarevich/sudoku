@@ -5,12 +5,12 @@ module.exports = function solveSudoku(matrix) {
   function getEmptyCell(matrix) {
     for (let i = 0; i < matrixSize; i++) {
       for (let j = 0; j < matrixSize; j++) {
-        if (matrix[i][j] === 0) {
+        if (!matrix[i][j]) {
           return [i, j]
         }
       }
     }
-    return false
+    return false;
   }
 
   function checkMatrix(pos, num, matrix) {
@@ -28,7 +28,7 @@ module.exports = function solveSudoku(matrix) {
     for (let i = sectorRow; i < sectorRow + matrixSector; i++) {
       for (let j = sectorCol; j < sectorCol + matrixSector; j++) {
         if(matrix[i][j] === num && i !== row && j !== col) {
-          return false
+          return false;
         }
       }
     }
